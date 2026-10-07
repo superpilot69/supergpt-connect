@@ -94,7 +94,7 @@ Claude / Codex 客户端需要另外安装。本工具只配置当前 Windows �
 WSL、远程开发环境有自己的配置，须在对应环境另行设置。
 应用关闭后不会常驻。配置与恢复记录保存在当前用户目录；删除 EXE 不会自动恢复配置。
 ${process.platform === 'win32' ? '本包在 Windows 上构建。' : '本包由其他系统交叉编译。'}测试范围见：
-https://github.com/superpilot69/supergpt-connect/blob/v${version}/VERIFICATION.md
+https://github.com/superpilot69/supergpt-connect/blob/main/VERIFICATION.md
 
 源码与许可：https://github.com/superpilot69/supergpt-connect
 `;

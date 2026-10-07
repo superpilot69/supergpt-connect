@@ -50,7 +50,7 @@ try {
 若系统拦截，请先确认下载自本项目的 GitHub Release，再按系统提示处理。
 
 源码与说明：https://github.com/superpilot69/supergpt-connect
-测试范围：https://github.com/superpilot69/supergpt-connect/blob/v${version}/VERIFICATION.md
+最新验证记录：https://github.com/superpilot69/supergpt-connect/blob/main/VERIFICATION.md
 `);
   const name = `SuperGPT-Connect-${version}-macOS-arm64.zip`;
   const archive = path.join(stage, name);
