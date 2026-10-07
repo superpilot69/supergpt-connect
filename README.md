@@ -10,8 +10,12 @@
 
 | 系统 | 下载 | 打开方式 |
 | --- | --- | --- |
-| Windows 10 / 11 · x64 | [Windows 免安装 ZIP](https://github.com/superpilot69/supergpt-connect/releases/download/v0.1.0/SuperGPT-Connect-0.1.0-Windows-x64-portable.zip) | 全部解压，双击 `SuperGPT Connect.exe` |
-| macOS · Apple Silicon | [Mac ZIP](https://github.com/superpilot69/supergpt-connect/releases/download/v0.1.0/SuperGPT-Connect-0.1.0-macOS-arm64.zip) | 解压后打开 `.app`，也可拖入「应用程序」 |
+| Windows 10 / 11 · x64 | [Windows 免安装 ZIP](https://downloads.supergpt.dev/connect/v0.1.0/SuperGPT-Connect-0.1.0-Windows-x64-portable.zip) | 全部解压，双击 `SuperGPT Connect.exe` |
+| macOS · Apple Silicon | [Mac ZIP](https://downloads.supergpt.dev/connect/v0.1.0/SuperGPT-Connect-0.1.0-macOS-arm64.zip) | 解压后打开 `.app`，也可拖入「应用程序」 |
+
+主下载由 Cloudflare R2 托管，[GitHub Releases](https://github.com/superpilot69/supergpt-connect/releases/tag/v0.1.0) 提供同一版本的备用下载。两个来源的文件内容及 [SHA-256 校验值](https://downloads.supergpt.dev/connect/v0.1.0/SHA256SUMS.txt) 一致。Mac 包仅支持 M 系列芯片，不支持 Intel Mac。
+
+Mac 与 Windows 均已收到用户实机测试通过的反馈，详细范围见 [验证记录](VERIFICATION.md)。
 
 运行时无需安装 Node.js 或 Rust。Windows 使用系统 WebView2 Runtime；缺少时，按应用提示从 [微软官网](https://developer.microsoft.com/microsoft-edge/webview2/) 安装。Windows 包未进行发布者签名；Mac 包使用 ad-hoc 签名，尚未完成 Apple Developer ID 签名与公证。校验值见 Release 的 `SHA256SUMS.txt`。
 
