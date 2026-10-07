@@ -1,0 +1,50 @@
+[package]
+name = "supergpt-connect"
+version = "0.1.0"
+description = "A minimal Claude Code and Codex API configurator, based on CC Switch"
+edition = "2021"
+rust-version = "1.85"
+license = "MIT"
+repository = "https://github.com/superpilot69/supergpt-connect"
+default-run = "supergpt-connect"
+
+[lib]
+name = "supergpt_connect_lib"
+crate-type = ["rlib", "cdylib", "staticlib"]
+
+[[bin]]
+name = "supergpt-connect"
+path = "src/main.rs"
+required-features = ["desktop"]
+
+[features]
+default = ["desktop"]
+desktop = ["dep:tauri"]
+
+[build-dependencies]
+tauri-build = { version = "2.4", features = [] }
+
+[dependencies]
+tauri = { version = "2.8", optional = true, features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+toml_edit = "0.22"
+thiserror = "2"
+dirs = "5"
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "json"] }
+sha2 = "0.10"
+tempfile = "3"
+fs2 = "0.4"
+jsonc-parser = { version = "0.34", features = ["cst", "serde"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+
+[target.'cfg(windows)'.dependencies]
+winreg = "0.56"
+windows-sys = { version = "0.61", features = ["Win32_UI_WindowsAndMessaging"] }
+
+[profile.release]
+opt-level = "s"
+lto = "thin"
+strip = true

@@ -1,0 +1,8 @@
+# The portable executable must not require a separately installed VC++ runtime.
+# Tauri's hybrid CRT override is disabled in tauri.windows.conf.json because it
+# conflicts with full static CRT linking; Rust owns this setting for both builds.
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-C", "target-feature=+crt-static"]
+
+[target.aarch64-pc-windows-msvc]
+rustflags = ["-C", "target-feature=+crt-static"]
