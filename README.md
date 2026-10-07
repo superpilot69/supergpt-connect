@@ -19,6 +19,16 @@ Mac 与 Windows 均已收到用户实机测试通过的反馈，详细范围见 
 
 运行时无需安装 Node.js 或 Rust。Windows 使用系统 WebView2 Runtime；缺少时，按应用提示从 [微软官网](https://developer.microsoft.com/microsoft-edge/webview2/) 安装。Windows 包未进行发布者签名；Mac 包使用 ad-hoc 签名，尚未完成 Apple Developer ID 签名与公证。校验值见 Release 的 `SHA256SUMS.txt`。
 
+### 下载提示“不是常下载的文件”
+
+v0.1.0 已收到 Chrome 以“不是常下载的文件，可能具有危险性”拦截 Mac ZIP 的反馈。这属于 Chrome 的“不常见文件”提示；仅凭这句话不能判断文件已被检测为恶意软件，也不能保证它安全。详见 [Google 对下载拦截的说明](https://support.google.com/chrome/answer/6261569?hl=zh-Hans)。
+
+Cloudflare 与 GitHub 提供的包及校验值一致。更换下载来源不保证消除提示，SHA-256 一致也不等于安全扫描通过。当前 Mac 包的完整性检查通过，但未获 Developer ID 签名和 Apple 公证，Gatekeeper 评估仍拒绝运行。正式签名与公证还未完成；即使完成，Chrome 的下载信誉也需独立验证。
+
+请保留浏览器保护设置。若无法接受当前发布包的信任状态，可暂缓安装，或审阅源码后自行构建；遇到不同的拦截说明，请通过 Issues 提供原文，不要附上 API Key。
+
+### 配置步骤
+
 1. **选择中转站**：默认 [SuperGPT](https://console.supergpt.dev)，也可以添加自己的站点。一次只使用一个。
 2. **选择客户端**：选择 Claude 或 Codex，再选择桌面版、终端版或 VS Code 扩展。
 3. **输入 API Key**：点击获取可用模型，读取站点的 `/v1/models`。

@@ -22,3 +22,10 @@
 缺少 WebView2、组织策略管控、所有客户端版本及所有模型工具调用组合仍未逐项实机验证。支持配置格式不等于覆盖任意客户端历史版本、所有中转站协议或模型能力。
 
 Windows 发布包尚未签名。Mac 发布包尚未完成 Apple Developer ID 签名和公证。测试与打包过程不修改真实 Claude / Codex 配置。
+
+## 2026-10-07 下载信誉复核
+
+- 用户在 Chrome 下载 Mac ZIP 时收到：“Chrome 阻止了此项下载操作，因为这不是常下载的文件，可能具有危险性”。这是已复现的下载阻碍，不能用此前下载成功或功能测试通过来代替验证。
+- 对实际发布的 Mac ZIP 解包复核：归档未加密，CRC 正常；SHA-256 为 `41e73fc31c2fb762ff76f7cb1fecc6d24a721f3151220fa90293635a14ca752f`，与 Cloudflare 和 GitHub 发布记录一致。
+- 包内应用 `codesign --verify --deep --strict` 通过，但签名为 ad-hoc，未绑定开发者 Team ID；`spctl --assess --type execute` 返回拒绝。该检查仅评估签名与系统信任，不是独立恶意软件扫描。
+- 构建机当前没有可用的代码签名身份，尚不能完成 Developer ID 签名与 Apple 公证。Chrome Safe Browsing 与 macOS Gatekeeper 是独立检查，完成公证后仍须验证 Chrome 实际下载行为。
